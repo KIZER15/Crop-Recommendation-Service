@@ -5,8 +5,8 @@ import joblib
 # LOAD MODEL
 # ==========================================================
 
-model = joblib.load("crop_recommendation_xgb.pkl")
-label_encoder = joblib.load("label_encoder.pkl")
+model = joblib.load("crop_recommendation_humidity_xgb.pkl")
+label_encoder = joblib.load("label_encoder_humidity.pkl")
 
 # ==========================================================
 # INPUT VALUES
@@ -17,12 +17,13 @@ P = 42
 K = 43
 pH = 6.5
 temperature = 25.3
+humidity = 82.0
 
 # ==========================================================
 # CREATE INPUT
 # ==========================================================
 
-sample = np.array([[N, P, K, pH, temperature]])
+sample = np.array([[N, P, K, pH, temperature, humidity]])
 
 # ==========================================================
 # PREDICT
@@ -48,6 +49,7 @@ print(f"P           : {P}")
 print(f"K           : {K}")
 print(f"pH          : {pH}")
 print(f"Temperature : {temperature}")
+print(f"Humidity    : {humidity}")
 
 print("\nPredicted Crop")
 print("----------------------------")

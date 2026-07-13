@@ -14,6 +14,7 @@ class CropInput(BaseModel):
     K: float
     pH: float
     temperature: float
+    humidity: float
 
 class CropOutput(BaseModel):
     predicted_crop: str
@@ -26,7 +27,7 @@ def health():
 
 @app.post("/predict", response_model=CropOutput)
 def predict(data: CropInput):
-    sample = np.array([[data.N, data.P, data.K, data.pH, data.temperature]])
+    sample = np.array([[data.N, data.P, data.K, data.pH, data.temperature, data.humidity]])
     prediction = model.predict(sample)[0]
     crop = label_encoder.inverse_transform([prediction])[0]
     probabilities = model.predict_proba(sample)[0]

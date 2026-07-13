@@ -5,7 +5,7 @@ WORKDIR /app
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY crop_recommendation_xgb.pkl label_encoder.pkl ./
+COPY crop_recommendation_humidity_xgb.pkl label_encoder_universal.pkl ./
 COPY app.py .
 
 EXPOSE 8000
