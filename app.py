@@ -18,7 +18,7 @@ class CropInput(BaseModel):
 
 class CropOutput(BaseModel):
     predicted_crop: str
-    confidence: float
+    confidence: str
     top5: list
 
 @app.get("/health")
