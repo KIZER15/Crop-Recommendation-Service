@@ -5,8 +5,8 @@ from pydantic import BaseModel
 
 app = FastAPI(title="Crop Recommendation API")
 
-model = joblib.load("crop_recommendation_xgb.pkl")
-label_encoder = joblib.load("label_encoder.pkl")
+model = joblib.load("crop_recommendation_humidity_xgb.pkl")
+label_encoder = joblib.load("label_encoder_humidity.pkl")
 
 class CropInput(BaseModel):
     N: float
